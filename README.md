@@ -1,1 +1,1 @@
-# js_app (Only with Javascript)
+# js_app (Only with HTML, CSS, Javascript)
