@@ -1,18 +1,24 @@
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
+
+const inputRange = document.getElementById('canvas-width');
+
 canvas.width = 800;
 canvas.height = 800;
-ctx.lineWidth = 5;
+ctx.lineWidth = inputRange.value;
 
 let isDrawing = false;
 
-const handleDrawing = (flag) => {
-  isDrawing = flag;
+const handleDraw = () => {
+  isDrawing = true;
 };
+const handleCancelDraw = () => {
+  isDrawing = false;
+}
 
-canvas.addEventListener("mousedown", () => handleDrawing(true));
-canvas.addEventListener("mouseup", () => handleDrawing(false));
-canvas.addEventListener("mouseleave", () => handleDrawing(false));
+canvas.addEventListener("mousedown", handleDraw);
+canvas.addEventListener("mouseup", handleCancelDraw);
+canvas.addEventListener("mouseleave", handleCancelDraw);
 
 canvas.addEventListener("mousemove", (event) => {
   if (isDrawing) {
